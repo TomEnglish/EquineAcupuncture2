@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stomach Meridian Acupuncture Points</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .slide {
+            display: none;
+            padding: 2rem;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #00568b;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00568b;
+        }
+        
+        h2 {
+            color: #00568b;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px dashed #ccc;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #888;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            transform: scale(1.02);
+        }
+        
+        .point-info {
+            margin-left: 20px;
+        }
+        
+        .point-info ul {
+            padding-left: 20px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: linear-gradient(145deg, #00568b, #004a77);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        table, th, td {
+            border: none;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #00568b;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .column-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        ul {
+            line-height: 1.6;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        ul li strong {
+            color: #00568b;
+        }
+        
+        .slide-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #00568b;
+        }
+        
+        @media (max-width: 768px) {
+            .column-layout {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" disabled>Previous</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span>/<span id="totalSlides">18</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Next</button>
+        </div>
+        
+        <div class="slide active" id="slide1">
+            <div class="centered-content">
+                <h1>Stomach Meridian (ST)</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li><strong>Origin:</strong> The Stomach meridian begins just ventral to the middle of the eye (ST-1)</li>
+                    <li><strong>Trajectory:</strong> Courses rostral to the lateral lip commissure, tracks through the masseter to the TMJ, passes along the ventral neck, shoulder and medial to the elbow, traverses the abdomen about 1.5 cun abaxial to ventral midline to the pubis (ST-30), jumps up to the caudoventral border of the tuber coxae (ST-31), then descends along the craniolateral aspect of the hind limb</li>
+                    <li><strong>Endpoint:</strong> Terminates at dorsal midline just proximal to the coronet (ST-45)</li>
+                    <li><strong>Function:</strong> Governs digestion and the transformation of food into nutrients and energy</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <h1>ST-1 (Cheng-qi)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Lower eye lid, 1/3 of the way from the medial canthus</li>
+                        <li><strong>Notes:</strong> Local Earth point for face</li>
+                        <li><strong>Mnemonic:</strong> "Can you stomach 1 needle under the eye?"</li>
+                        <li><strong>Indications:</strong> Conjunctivitis, uveitis, ocular discharge or swelling, eyelid tremor, facial paralysis, SCC</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-1 location on the lower eyelid</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <h1>ST-2 (San-jiang)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Ventral to the medial canthus at the bifurcation of the angular vein</li>
+                        <li><strong>Indications:</strong> Eye itching or pain, colic, eyelid tremor</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-2 location ventral to the medial canthus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h1>ST-4 (Suo-kou)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 0.5 cun caudal to the lateral commissure of the mouth</li>
+                        <li><strong>Mnemonic:</strong> "Use the lips 4 getting things to the stomach"</li>
+                        <li><strong>Indications:</strong> Facial paralysis, excess salivation, eyelid tremor</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-4 location near the mouth</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h1>ST-5 (Kai-guan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 5 cun caudal to the lateral commissure of the mouth, along the rostral border of the masseter muscle, at the level of the medial canthus of the eye</li>
+                        <li><strong>Mnemonic:</strong> "High 5 the rostral masseter"</li>
+                        <li><strong>Indications:</strong> Facial paralysis, tetanus, swelling or pain of cheek/jaw, toothache</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-5 location on the rostral masseter</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide6">
+            <h1>ST-6 (Bao-sai)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the center of the masseter, at the level of the lateral canthus of the eye, located in a depression when the jaw is open</li>
+                        <li><strong>Mnemonic:</strong> "6 in the center"</li>
+                        <li><strong>Indications:</strong> Facial paralysis, tetanus, cheek/jaw pain or swelling, toothache</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-6 location in the center of the masseter</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide7">
+            <h1>ST-7 (Xia-guan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression ventral to the temporomandibular joint (TMJ)</li>
+                        <li><strong>Notes:</strong> Scan point for tooth/TMJ</li>
+                        <li><strong>Indications:</strong> Facial paralysis, tetanus, stomach ulcer, TMJ problems</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-7 location ventral to the TMJ</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide8">
+            <h1>ST-9 (Ren-ying)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the depression caudal to the jaw, lateral to the larynx, ventral to the sternocephalicus tendon</li>
+                        <li><strong>Indications:</strong> Laryngeal hemiplegia, sore throat, hypertension, thyroid disorder, heaves</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-9 location caudal to the jaw</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide9">
+            <h1>ST-10 (Shui-tu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression dorsal to the jugular groove, in the ventral aspect of the brachiocephalic muscle at the caudal edge of the cutaneous colli muscle</li>
+                        <li><strong>Notes:</strong> Diagnosis point for ipsilateral stifle</li>
+                        <li><strong>Indications:</strong> Cough and dyspnea</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-10 location dorsal to the jugular groove</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide10">
+            <h1>ST-25 (Tian-shu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 2 cun lateral to the umbilicus, in the belly of the rectus abdominis muscle</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Alarm point for large intestine</li>
+                                <li>Contraindication for pregnancy using moxibustion</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Release heat and relieve constipation using acupressure</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-25 location lateral to the umbilicus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide11">
+            <h1>ST-31 (Ju-liao or Bi-guan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the depression 1.5 cun caudoventral to the ventral border of the tuber coxae, over the tensor fascia lata</li>
+                        <li><strong>Mnemonic:</strong> "Julia" of Dan & Julia ("Dan" = SP-11); Dan leads, Julia follows</li>
+                        <li><strong>Indications:</strong> Wei syndrome, colic, stifle pain or arthritis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-31 location near the tuber coxae</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide12">
+            <h1>ST-34 (Liang-qiu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 2 cun proximolateral to the patella, in the belly of the vastus lateralis m.</li>
+                        <li><strong>Notes:</strong> Xi-cleft point</li>
+                        <li><strong>Indications:</strong> Acute epigastric pain, stifle pain and swelling, paralysis of hindlimb, urinary hemorrhage, Wei syndrome</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-34 location proximolateral to the patella</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide13">
+            <h1>ST-35 (Du-bi or Lue-cao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Between the distal border of the patella and the proximal border of the tibia, in a depression between middle and lateral patellar ligament</li>
+                        <li><strong>Notes:</strong> Tent skin</li>
+                        <li><strong>Mnemonic:</strong> A "Du-bi"ous point over the stifle jt injection site</li>
+                        <li><strong>Indications:</strong> Stifle pain and arthritis, ligament problems</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-35 location at the stifle joint</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide14">
+            <h1>ST-36 (Hou-san-li)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 3 cun distal to ST-35, 0.5 cun distolateral to the cranial aspect of the tibial tuberosity, over the extensor digitorum longus m.</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>CAUTION - cun unreliable, variation based on tibial crest</li>
+                                <li>He-sea point (Earth)</li>
+                                <li>Three mild point for hindlimb</li>
+                                <li>Master point for GI tract and abdomen</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Nausea, vomiting, stomach pain, gastric ulcer, food stasis, general weakness, constipation, and diarrhea</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-36 location on the hindlimb</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide15">
+            <h1>ST-37 (Shang-ju-xu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 3 cun distal to ST-36 or 2 cun proximal to ST-38, 0.5 cun lateral to the cranial aspect of the tibia, over the long digital extensor m.</li>
+                        <li><strong>Notes:</strong> Lower He-sea point for LI meridian</li>
+                        <li><strong>Indications:</strong> Diarrhea, intestinal ulcer, colitis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-37 location on the hindlimb</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide16">
+            <h1>ST-40 (Feng-long)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Lateral to ST-38 (8 cun proximal to the lateral malleolus) in the muscular groove between the long digital extensor m. and the lateral digital extensor m.</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Luo-connecting point for ST meridian</li>
+                                <li>Influential point for Phlegm</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Phlegm, edema, constipation, seizure, paralysis of hindlimb</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-40 location on the hindlimb</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide17">
+            <h1>ST-44 (Nei-ting)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Distal to the fetlock joint, directly lateral to the long digital extensor tendon</li>
+                        <li><strong>Notes:</strong> Ying-spring point (Water)</li>
+                        <li><strong>Indications:</strong> Sore throat, stomach heat, fever, facial paralysis, nose bleeding, bloody diarrhea, hock pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-44 location distal to the fetlock joint</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide18">
+            <h1>ST-45 (Hou-ti-tou)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> On the dorsal midline of the pelvic limb, 0.5 cun proximal to the coronary band</li>
+                        <li><strong>Notes:</strong> Jing-well point (Metal-son)</li>
+                        <li><strong>Indications:</strong> Sore throat, nose bleeding, dental pain, abdominal pain, fever, seizure, laminitis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing ST-45 location near the coronary band</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideEl = document.getElementById('currentSlide');
+            const totalSlidesEl = document.getElementById('totalSlides');
+            
+            let currentSlide = 0;
+            totalSlidesEl.textContent = slides.length;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                currentSlideEl.textContent = index + 1;
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

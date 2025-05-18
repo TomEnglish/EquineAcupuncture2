@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Meridian Acupuncture Points</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .slide {
+            display: none;
+            padding: 2rem;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b0000;
+        }
+        
+        h2 {
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px dashed #ccc;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #888;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            transform: scale(1.02);
+        }
+        
+        .point-info {
+            margin-left: 20px;
+        }
+        
+        .point-info ul {
+            padding-left: 20px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: linear-gradient(145deg, #9a0000, #8b0000);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        table, th, td {
+            border: none;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #8b0000;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .column-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        ul {
+            line-height: 1.6;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        ul li strong {
+            color: #8b0000;
+        }
+        
+        .slide-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #8b0000;
+        }
+        
+        @media (max-width: 768px) {
+            .column-layout {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide active" id="slide1">
+            <div class="centered-content">
+                <h1>Heart Meridian (HT)</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li><strong>Origin:</strong> The Heart meridian begins in the heart</li>
+                    <li><strong>Trajectory:</strong> Travels through the chest, emerges at the axilla, flows along the caudomedial aspect of the forelimb</li>
+                    <li><strong>Endpoint:</strong> Terminates at the medial corner of the coronary band of the front hoof</li>
+                    <li><strong>Function:</strong> Governs blood circulation, consciousness, and mental-emotional states</li>
+                    <li><strong>Element:</strong> Fire</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <h1>HT-1 (Jia-qi)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Center of axillary space over transverse pectoral muscle between trunk and forelimb</li>
+                        <li><strong>Indications:</strong> Shoulder pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-1 location in the axillary space</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <h1>HT-3 (Shao-hai)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Between olecranon and medial epicondyle of humerus, ventral to medial head of triceps</li>
+                        <li><strong>Notes:</strong> He-sea Point, Water point</li>
+                        <li><strong>Indications:</strong> Elbow pain, Chest pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-3 location near the elbow</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h1>HT-4 (Ling-dao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Caudolateral border of forelimb, 1.5 cun proximal to HT-7 on caudal aspect of ulnaris lateralis m.</li>
+                        <li><strong>Notes:</strong> Jing-river (Metal)</li>
+                        <li><strong>Indications:</strong> Shen disturbance, insomnia, anxiety, restlessness</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-4 location on the forelimb</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h1>HT-5 (Tong-li)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Caudolateral border of forelimb, 1 cun proximal to HT-7 on caudal aspect of ulnaris lateralis muscle</li>
+                        <li><strong>Notes:</strong> Luo connecting point for SI</li>
+                        <li><strong>Indications:</strong> Insomnia, Restlessness, Anxiety</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-5 location on the forearm</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide6">
+            <h1>HT-6 (Yin-xi)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Caudolateral border of forelimb, 0.5 cun proximal to HT-7</li>
+                        <li><strong>Notes:</strong> Xi-cleft point</li>
+                        <li><strong>Indications:</strong> Acute cardiac pain, Shen disturbance, Sweating due to Yin deficiency</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-6 location on the forearm</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide7">
+            <h1>HT-7 (Guo-liang)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Caudolateral aspect of radius in depression on caudal aspect of ulnaris lateralis muscle, proximal to most proximal aspect of accessory carpal bone</li>
+                        <li><strong>Notes:</strong>
+                            <ul>
+                                <li>Use in fearful fire horse</li>
+                                <li>Shu-stream point (Earth)</li>
+                                <li>Yuan (primary) point</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Palpitation, Shen disturbance, anxiety, restlessness, chest pain, manic</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-7 location near the carpus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide8">
+            <h1>HT-8 (Shao-fu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Palmerolateral aspect of third metacarpal bone, half distance from carpus to fetlock between suspensory ligament and deep digital flexor tendon</li>
+                        <li><strong>Notes:</strong> Ying-spring point (Fire)</li>
+                        <li><strong>Indications:</strong> Genital itching, Urinary difficulty or incontinence</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-8 location on the metacarpus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide9">
+            <h1>HT-9 (Shao-chong)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Palmarilateral aspect of thoracic hoof, 0.5 cun proximal to coronary band</li>
+                        <li><strong>Notes:</strong> Jing-well point, Mother point</li>
+                        <li><strong>Indications:</strong> Chest pain, Shoulder pain, Front limb lameness, Laminitis, Coma, Shen disturbance</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing HT-9 location near the coronary band</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide10">
+            <h1>Heart Meridian - Five-Element Points</h1>
+            <div class="centered-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Point</th>
+                            <th>Element</th>
+                            <th>Type</th>
+                            <th>Primary Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HT-9</td>
+                            <td>Wood</td>
+                            <td>Jing-well</td>
+                            <td>Powerful for acute conditions</td>
+                        </tr>
+                        <tr>
+                            <td>HT-8</td>
+                            <td>Fire</td>
+                            <td>Ying-spring</td>
+                            <td>Treats Heat conditions</td>
+                        </tr>
+                        <tr>
+                            <td>HT-7</td>
+                            <td>Earth</td>
+                            <td>Shu-stream</td>
+                            <td>Yuan source point</td>
+                        </tr>
+                        <tr>
+                            <td>HT-4</td>
+                            <td>Metal</td>
+                            <td>Jing-river</td>
+                            <td>Treats Qi-level issues</td>
+                        </tr>
+                        <tr>
+                            <td>HT-3</td>
+                            <td>Water</td>
+                            <td>He-sea</td>
+                            <td>Treats chronic conditions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide11">
+            <h1>Heart Meridian - Clinical Applications</h1>
+            <div class="centered-content">
+                <ul>
+                    <li><strong>Cardiac function:</strong> HT-7, HT-9</li>
+                    <li><strong>Mental-emotional issues:</strong> HT-7, HT-5, HT-4</li>
+                    <li><strong>Limb pain/lameness:</strong> HT-9, HT-3</li>
+                    <li><strong>Febrile conditions:</strong> HT-8, HT-6</li>
+                    <li><strong>Urogenital disorders:</strong> HT-8</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide12">
+            <h1>Heart Meridian - Treatment Combinations</h1>
+            <div class="centered-content">
+                <ul>
+                    <li><strong>For Shen disturbance:</strong> HT-7 + PC-6</li>
+                    <li><strong>For chest pain:</strong> HT-3 + CV-17</li>
+                    <li><strong>For forelimb issues:</strong> HT-9 + LI-4</li>
+                    <li><strong>For anxiety/stress:</strong> HT-7 + GV-20 + An-shen (174)</li>
+                    <li><strong>For cardiac support:</strong> HT-7 + BL-15 (Back-shu for Heart)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" disabled>Previous</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Next</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            let currentSlide = 1;
+            
+            document.getElementById('totalSlides').textContent = totalSlides;
+            
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // Navigation buttons event listeners
+            prevBtn.addEventListener('click', showPreviousSlide);
+            nextBtn.addEventListener('click', showNextSlide);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    showNextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    showPreviousSlide();
+                }
+            });
+            
+            function showSlide(slideNumber) {
+                slides.forEach((slide, index) => {
+                    if (index + 1 === slideNumber) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                
+                currentSlide = slideNumber;
+                document.getElementById('currentSlide').textContent = currentSlide;
+                
+                // Update button states
+                prevBtn.disabled = currentSlide === 1;
+                nextBtn.disabled = currentSlide === totalSlides;
+            }
+            
+            function showNextSlide() {
+                if (currentSlide < totalSlides) {
+                    showSlide(currentSlide + 1);
+                }
+            }
+            
+            function showPreviousSlide() {
+                if (currentSlide > 1) {
+                    showSlide(currentSlide - 1);
+                }
+            }
+            
+            // Touch support for mobile devices
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            document.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    showNextSlide();
+                } else if (touchEndX > touchStartX + 50) {
+                    showPreviousSlide();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

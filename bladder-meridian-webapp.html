@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bladder Meridian Acupuncture Points</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .slide {
+            display: none;
+            padding: 2rem;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #00568b;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00568b;
+        }
+        
+        h2 {
+            color: #00568b;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px dashed #ccc;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #888;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            transform: scale(1.02);
+        }
+        
+        .point-info {
+            margin-left: 20px;
+        }
+        
+        .point-info ul {
+            padding-left: 20px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: linear-gradient(145deg, #00568b, #004a77);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        table, th, td {
+            border: none;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #00568b;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .column-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        ul {
+            line-height: 1.6;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        ul li strong {
+            color: #00568b;
+        }
+        
+        .slide-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #00568b;
+        }
+        
+        @media (max-width: 768px) {
+            .column-layout {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" disabled>Previous</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span>/<span id="totalSlides">30</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Next</button>
+        </div>
+        
+        <div class="slide active" id="slide1">
+            <div class="centered-content">
+                <h1>Bladder Meridian (BL)</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li><strong>Origin:</strong> The Bladder meridian begins at the medial canthus of the eye (BL-1)</li>
+                    <li><strong>Trajectory:</strong> Runs up to the earbase (BL-7), the atlas (BL-10) then to the withers (BL-11), then continues down the back in two parallel lines (inner and outer Bladder lines) all the way to the lateral aspect of the hind foot</li>
+                    <li><strong>Endpoint:</strong> Terminates just proximal to the caudolateral coronet (BL-67)</li>
+                    <li><strong>Function:</strong> Longest meridian in the body, governs water metabolism and urinary function</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <h1>BL-1</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Indentation at the medial canthus</li>
+                        <li><strong>Indications:</strong> Eye problems, conjunctivitis and uveitis</li>
+                        <li><strong>Notes:</strong> Contraindication of moxibustion</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-1 location at the medial canthus of the eye</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <h1>BL-2 (Cuan-zhu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the depression between the dorsal orbital rim and the temporal line of the frontal bone</li>
+                        <li><strong>Notes:</strong> Leading edge of the eyebrow</li>
+                        <li><strong>Indications:</strong> Eye problems, conjunctivitis and uveitis</li>
+                        <li><strong>Caution:</strong> Contraindication of moxibustion</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-2 location at the eyebrow area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h1>BL-7 (Tong-tian)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 1.5 cun lateral to the dorsocranial aspect of the nuchal crest, between ear and forelock</li>
+                        <li><strong>Indications:</strong> Nasal discharge and congestion</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-7 location between ear and forelock</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h1>BL-10 (Tian-zhu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression just caudal to the wings of the atlas, 1.5 cun from the dorsal midline</li>
+                        <li><strong>Notes:</strong> Back of bridle path</li>
+                        <li><strong>Indications:</strong> Wind-cold, nasal congestion and discharge, cervical stiffness</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-10 location at the atlas area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide6">
+            <h1>BL-11 (Da-zhu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Cranial to the withers (at the 2nd thoracic vertebral space), 1.5 cun lateral to the dorsal midline</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Ahead of T3 (last palpable thoracic DSP)</li>
+                                <li>Influential point for bone (arthritis/disc)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Cough, heaves, fever, cervical stiffness, forelimb lameness</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-11 location at the withers area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide7">
+            <h1>BL-12 (Feng-men) / BL-41</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> At the 4th thoracic intervertebral space, 1 cun lateral to the dorsal midline. (BL-41 is 5 cun lateral to BL-12)</li>
+                        <li><strong>Notes:</strong> Influential point for Wind/trachea</li>
+                        <li><strong>Indications:</strong> Wind-Cold, WindHeat, skin itching, cervical stiffness, cough</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-12/BL-41 location at the thoracic area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide8">
+            <h1>BL-13 (Fei-shu) / BL-42</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the 8th intercostal space, 3 cun lateral to the dorsal midline in the groove between the longissimus and the iliocostalis muscles. (BL-42 is 3 cun lateral to BL-13)</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Just behind the angle of the scapula</li>
+                                <li>Back-shu association point for LU</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Cough, heaves, asthma, tidal fever, sweat, nasal congestion</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-13/BL-42 location behind the scapula</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide9">
+            <h1>BL-23 (Shen-shu) / BL-52</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 2nd lumbar intervertebral space (L2-L3), 3 cun from the dorsal midline. (BL-52 is 3 cun lateral to BL-23)</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Tangent line from curve of last rib → spine</li>
+                                <li>Back-shu association point for KID (Traditional association point for BL)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Urinary incontinence, lack of libido, edema, ear problems, back pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-23/BL-52 location at the lumbar area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide10">
+            <h1>BL-28 (Pang-guang-shu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 2nd sacral intervertebral space (S2-S3), 3 cun lateral to the dorsal midline</li>
+                        <li><strong>Notes:</strong> Back-shu association point for BL</li>
+                        <li><strong>Indications:</strong> Urinary difficult or incontinence, diarrhea, constipation, back pain</li>
+                        <li><strong>Special Use:</strong> Moxa for longterm management of urine dribbling</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-28 location at the sacral area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide11">
+            <h1>BL-40 (Wei-zhong)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the popliteal fossa, between the medial and lateral head of the gastrocnemius m.</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Master point for caudal back and hips</li>
+                                <li>He-sea point (Earth)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Dysuria, urinary incontinence, hip joint, back pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-40 location at the popliteal fossa</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide12">
+            <h1>BL-60 (Kun-lun)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Between the lateral malleolus of the tibia and the calcaneal tuber</li>
+                        <li><strong>Notes:</strong> 
+                            <ul>
+                                <li>Follow the rivulet to the web of the hock, proximal to the plantar pouch of the TC joint</li>
+                                <li>Opposite KID-3</li>
+                                <li>Jing-river (Fire). "Aspirin point"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Indications:</strong> Cervical stiffness, nose bleeding, seizure, promotion of parturition</li>
+                        <li><strong>Caution:</strong> Contraindication for pregnancy</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-60 location at the hock area</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide13">
+            <h1>BL-67 (Zhi-yin)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Plantarolateral aspect of the pelvic limb, 0.5 cun proximal to the coronary band</li>
+                        <li><strong>Notes:</strong> Jing-well point (Metal), mother point</li>
+                        <li><strong>Indications:</strong> Nasal congestion and discharge, nose bleeding, eye problems, promotion of parturition, laminitis</li>
+                        <li><strong>Caution:</strong> Contraindication for pregnancy</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing BL-67 location near the coronary band</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide14">
+            <h1>Bladder Meridian - Back-Shu Association Points</h1>
+            <div class="centered-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Point</th>
+                            <th>Association</th>
+                            <th>Location</th>
+                            <th>Primary Indications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BL-13</td>
+                            <td>Lung (LU)</td>
+                            <td>8th intercostal space</td>
+                            <td>Respiratory issues, cough, asthma</td>
+                        </tr>
+                        <tr>
+                            <td>BL-15</td>
+                            <td>Heart (HT)</td>
+                            <td>10th intercostal space</td>
+                            <td>Cardiac issues, mental-emotional</td>
+                        </tr>
+                        <tr>
+                            <td>BL-18</td>
+                            <td>Liver (LIV)</td>
+                            <td>13th-14th intercostal space</td>
+                            <td>Liver issues, eye problems</td>
+                        </tr>
+                        <tr>
+                            <td>BL-20</td>
+                            <td>Spleen (SP)</td>
+                            <td>17th intercostal space</td>
+                            <td>Digestive issues, edema</td>
+                        </tr>
+                        <tr>
+                            <td>BL-23</td>
+                            <td>Kidney (KID)</td>
+                            <td>2nd lumbar space</td>
+                            <td>Urinary issues, back pain</td>
+                        </tr>
+                        <tr>
+                            <td>BL-28</td>
+                            <td>Bladder (BL)</td>
+                            <td>2nd sacral space</td>
+                            <td>Urinary issues, incontinence</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide15">
+            <h1>Bladder Meridian - Five-Element Points</h1>
+            <div class="centered-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Point</th>
+                            <th>Element</th>
+                            <th>Type</th>
+                            <th>Primary Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BL-67</td>
+                            <td>Metal</td>
+                            <td>Jing-well</td>
+                            <td>Powerful for acute conditions</td>
+                        </tr>
+                        <tr>
+                            <td>BL-66</td>
+                            <td>Water</td>
+                            <td>Ying-spring</td>
+                            <td>Treats Heat conditions</td>
+                        </tr>
+                        <tr>
+                            <td>BL-65</td>
+                            <td>Wood</td>
+                            <td>Shu-stream</td>
+                            <td>Treats chronic conditions</td>
+                        </tr>
+                        <tr>
+                            <td>BL-60</td>
+                            <td>Fire</td>
+                            <td>Jing-river</td>
+                            <td>"Aspirin point" for pain</td>
+                        </tr>
+                        <tr>
+                            <td>BL-40</td>
+                            <td>Earth</td>
+                            <td>He-sea</td>
+                            <td>Master point for back and hips</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide16">
+            <h1>Bladder Meridian - Clinical Applications</h1>
+            <div class="centered-content">
+                <ul>
+                    <li><strong>Urinary function:</strong> BL-28, BL-23, BL-40</li>
+                    <li><strong>Back pain:</strong> BL-23, BL-40, BL-60</li>
+                    <li><strong>Eye problems:</strong> BL-1, BL-2, BL-67</li>
+                    <li><strong>Respiratory issues:</strong> BL-13, BL-12</li>
+                    <li><strong>Pregnancy/Parturition:</strong> BL-67, BL-60 (with caution)</li>
+                    <li><strong>Cervical stiffness:</strong> BL-10, BL-11, BL-60</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideEl = document.getElementById('currentSlide');
+            const totalSlidesEl = document.getElementById('totalSlides');
+            
+            let currentSlide = 0;
+            totalSlidesEl.textContent = slides.length;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                currentSlideEl.textContent = index + 1;
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

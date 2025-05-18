@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acupuncture Meridian Points Index</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(145deg, #00568b, #004a77);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .meridian-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .meridian-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .meridian-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(145deg, #00568b, #004a77);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body p {
+            margin: 0 0 1rem 0;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #00568b;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .btn:hover {
+            background: #003d62;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .meridian-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acupuncture Meridian Points</h1>
+        <div class="subtitle">Interactive Reference Guide</div>
+    </header>
+    
+    <div class="container">
+        <div class="meridian-grid">
+            <div class="meridian-card">
+                <div class="card-header">
+                    <h2>Bladder Meridian (BL)</h2>
+                </div>
+                <div class="card-body">
+                    <p>The Bladder meridian is the longest meridian in the body. It begins at the medial canthus of the eye (BL-1), runs up to the earbase, the atlas, then to the withers, then continues down the back in two parallel lines all the way to the lateral aspect of the hind foot.</p>
+                    <a href="bladder-meridian-webapp.html" class="btn">View Bladder Meridian</a>
+                </div>
+            </div>
+            
+            <div class="meridian-card">
+                <div class="card-header">
+                    <h2>Large Intestine Meridian (LI)</h2>
+                </div>
+                <div class="card-body">
+                    <p>The Large Intestine meridian begins at the craniomedial aspect of the forelimb just proximal to the coronary band, travels up the craniomedial aspect of the forelimb, crosses the carpus to the craniolateral forelimb, up the neck and then to the face.</p>
+                    <a href="large-intestine-meridian-webapp.html" class="btn">View Large Intestine Meridian</a>
+                </div>
+            </div>
+            
+            <div class="meridian-card">
+                <div class="card-header">
+                    <h2>Lung Meridian (LU)</h2>
+                </div>
+                <div class="card-body">
+                    <p>The Lung meridian begins in the middle jiao (stomach), emerges at LU-1 in the center of the pectorals, then travels abaxially to the cubital crease to LU-5, follows the craniomedial aspect of the radius, then passes caudal to the carpus and metacarpus.</p>
+                    <a href="lung-meridian-webapp.html" class="btn">View Lung Meridian</a>
+                </div>
+            </div>
+            
+            <div class="meridian-card">
+                <div class="card-header">
+                    <h2>Stomach Meridian (ST)</h2>
+                </div>
+                <div class="card-body">
+                    <p>The Stomach meridian begins just ventral to the middle of the eye (ST-1), courses through the face and neck, traverses the abdomen, then descends along the craniolateral aspect of the hind limb to end at the dorsal midline just proximal to the coronet (ST-45).</p>
+                    <a href="stomach-meridian-webapp.html" class="btn">View Stomach Meridian</a>
+                </div>
+            </div>
+            
+            <div class="meridian-card">
+                <div class="card-header">
+                    <h2>Governing Vessel (GV)</h2>
+                </div>
+                <div class="card-body">
+                    <p>The Governing Vessel (Du Mai) runs along the dorsal midline of the body from the perineum, up the spine, over the top of the head, and ends at the upper lip. As one of the Eight Extraordinary Vessels, it's known as the "Sea of Yang".</p>
+                    <a href="governing-vessel-meridian-webapp.html" class="btn">View Governing Vessel</a>
+                </div>
+            </div>
+            
+            <div class="meridian-card">
+                <div class="card-header">
+                    <h2>Conception Vessel (CV)</h2>
+                </div>
+                <div class="card-body">
+                    <p>The Conception Vessel (Ren Mai) runs along the ventral midline of the body from the perineum, through the abdomen and chest, and ends at the lower lip. As one of the Eight Extraordinary Vessels, it's known as the "Sea of Yin".</p>
+                    <a href="conception-vessel-meridian-webapp.html" class="btn">View Conception Vessel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Acupuncture Meridian Points Reference Guide - Created on May 18, 2025</p>
+    </footer>
+</body>
+</html>
