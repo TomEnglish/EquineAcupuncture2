@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spleen Meridian Acupuncture Points</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .slide {
+            display: none;
+            padding: 2rem;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b0000;
+        }
+        
+        h2 {
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px dashed #ccc;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #888;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            transform: scale(1.02);
+        }
+        
+        .point-info {
+            margin-left: 20px;
+        }
+        
+        .point-info ul {
+            padding-left: 20px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: linear-gradient(145deg, #9a0000, #8b0000);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        table, th, td {
+            border: none;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #8b0000;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .column-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        ul {
+            line-height: 1.6;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        ul li strong {
+            color: #8b0000;
+        }
+        
+        .slide-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #8b0000;
+        }
+        
+        @media (max-width: 768px) {
+            .column-layout {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn">Previous</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span>/<span id="totalSlides">14</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Next</button>
+        </div>
+        
+        <div class="slide active" id="slide1">
+            <div class="centered-content">
+                <h1>Spleen Meridian (SP)</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li><strong>Origin:</strong> The Spleen meridian begins at the medial aspect of the hind hoof</li>
+                    <li><strong>Trajectory:</strong> Travels up the medial aspect of the distal hind limb, tracks cranial over the tibia, crosses the medial aspect of the stifle, emerges at the flank fold (SP-10) to the cranioventral tuber coxae (SP-11), travels to the craniodorsal tuber coxae (SP-13) before descending to mid flank and traveling cranially over the costochondral junction</li>
+                    <li><strong>Endpoint:</strong> Terminates at the 10th ICS at the level of the point of the shoulder (SP-21)</li>
+                    <li><strong>Function:</strong> Governs transformation and transportation of nutrients, blood production, and muscle strength</li>
+                    <li><strong>Element:</strong> Earth</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <h1>SP-1 (Yin-bai)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Plantaromedial aspect of the pelvic limb at the medial collateral ligament of the coffin joint, 0.5 cun proximal to the coronary band</li>
+                        <li><strong>Notes:</strong> Jing-well point (Wood)</li>
+                        <li><strong>Indications:</strong> Laminitis, bloody urination, bloody defecation, abdominal pain or fullness</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-1 location near the coronary band</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <h1>SP-2 (Da-du)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Distal to the medial sesamoid bone, plantar to the interosseous m.</li>
+                        <li><strong>Notes:</strong> Ying-spring point (Fire-mother)</li>
+                        <li><strong>Indications:</strong> Diarrhea, constipation, fever</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-2 location distal to the medial sesamoid bone</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h1>SP-3 (Tai-bai)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> On the plantaromedial aspect of the pelvic limb, just distal to the distal end of the 2nd metatarsal bone, plantar to the suspensory ligament</li>
+                        <li><strong>Notes:</strong> Shu-stream point (Earth), Yuan primary point</li>
+                        <li><strong>Indications:</strong> Colic, diarrhea, constipation, obesity, joint pain, perianal conditions, laminitis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-3 location distal to the 2nd metatarsal bone</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h1>SP-4 (Gong-sun)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression on the pelvic limb, plantarodistal to the base of the medial splint bone, dorsal to the DDFT, plantar to LIV-3</li>
+                        <li><strong>Notes:</strong> Luo-connecting point for SP meridian, Confluent point with Chong extraordinary channel</li>
+                        <li><strong>Indications:</strong> Gastric pain, colic, diarrhea, vomiting</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-4 location in the depression plantarodistal to the medial splint bone</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide6">
+            <h1>SP-5 (Shang-qiu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression plantar to the medial malleolus of the tibia, plantar to LIV-4</li>
+                        <li><strong>Notes:</strong> Jing-river (Metal-son)</li>
+                        <li><strong>Indications:</strong> Abdominal pain, diarrhea, constipation, jaundice, hock pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-5 location in the depression plantar to the medial malleolus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide7">
+            <h1>SP-6 (San-yin-jiao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 3 cun proximal to the medial malleolus, caudal to the tibia</li>
+                        <li><strong>Notes:</strong> Master point for Caudal Abdomen and urogenital tract</li>
+                        <li><strong>Indications:</strong> Diarrhea, genital discharge, promotion of parturition, infertility, paralysis of hindlimb, lack of libido, abnormal cycling, hernia, urinary incontinence, insomnia. Combine with SP-9 for lower jiao damp heat</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-6 location 3 cun proximal to the medial malleolus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide8">
+            <h1>SP-8 (Di-ji)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> On the caudal border of the tibia, 3 cun distal to SP-9, cranial to the long digital flexor</li>
+                        <li><strong>Notes:</strong> Xi-cleft point</li>
+                        <li><strong>Indications:</strong> Colic, diarrhea, edema, abnormal cycling, difficulty in urination</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-8 location on the caudal border of the tibia</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide9">
+            <h1>SP-9 (Yin-ling-quan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression at the level of the tibial tuberosity, 0.5 cun cranial to the saphenous vein, on the ventral border of the gracilis muscle, cranial to the saphenous v. (The "panty line")</li>
+                        <li><strong>Notes:</strong> He-sea point (Water)</li>
+                        <li><strong>Indications:</strong> Edema, diarrhea, jaundice, urinary difficulty or incontinence, stifle pain and arthritis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-9 location at the level of the tibial tuberosity</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide10">
+            <h1>SP-10 (Xue-hai)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 2 cun proximal to the proximomedial border of the patella, in the belly of the vastus medialis m. (Grab the "stifle boob" → tip of index finger at SP-10)</li>
+                        <li><strong>Notes:</strong> Sea of Blood</li>
+                        <li><strong>Indications:</strong> Blood Heat toxin, fever, eczema, abnormal cycling</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-10 location in the vastus medialis muscle</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide11">
+            <h1>SP-11 (Ji-men or Dan-tian)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the depression 1.5 cun cranioventral to the ventral border of tuber coxa</li>
+                        <li><strong>Notes:</strong> "Dan" of Dan & Julia ("Julia" = ST-31, Dan leads, Julia follows)</li>
+                        <li><strong>Indications:</strong> Difficulty in urination, urinary incontinence</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-11 location cranioventral to the tuber coxa</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide12">
+            <h1>SP-12 (Chong-men)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression ventral to the curve of the cranial aspect of the tuber coxa, ventral to the tendon of the obliquus internus abdominus m. (Top of the flank fold cowlick)</li>
+                        <li><strong>Notes:</strong> Stifle performance point</li>
+                        <li><strong>Indications:</strong> Colic, hernia</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-12 location ventral to the cranial aspect of the tuber coxa</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide13">
+            <h1>SP-13 (Fu-she)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 0.5 cun cranioventral to the craniodorsal aspect of the tuber coxae, dorsal to the tendon of the obliquus internus abdominus m.</li>
+                        <li><strong>Notes:</strong> Hock and stifle performance point</li>
+                        <li><strong>Indications:</strong> Colic, hernia</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-13 location cranioventral to the tuber coxae</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide14">
+            <h1>SP-21 (Da-bao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> At the 10th ICS at the same level as the point of the shoulder ("John's big hug" - Sore all over- needs a hug)</li>
+                        <li><strong>Notes:</strong> SP major Luo</li>
+                        <li><strong>Indications:</strong> Heaves, pain in entire body, Wei syndrome</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing SP-21 location at the 10th intercostal space</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideSpan = document.getElementById('currentSlide');
+            const totalSlidesSpan = document.getElementById('totalSlides');
+            
+            let currentSlide = 0;
+            totalSlidesSpan.textContent = slides.length;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                currentSlideSpan.textContent = index + 1;
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

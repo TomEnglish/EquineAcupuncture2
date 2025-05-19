@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Meridian Acupuncture Points</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .slide {
+            display: none;
+            padding: 2rem;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b0000;
+        }
+        
+        h2 {
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px dashed #ccc;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #888;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            transform: scale(1.02);
+        }
+        
+        .point-info {
+            margin-left: 20px;
+        }
+        
+        .point-info ul {
+            padding-left: 20px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: linear-gradient(145deg, #9a0000, #8b0000);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        table, th, td {
+            border: none;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #8b0000;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .column-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        ul {
+            line-height: 1.6;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        ul li strong {
+            color: #8b0000;
+        }
+        
+        .slide-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #8b0000;
+        }
+        
+        @media (max-width: 768px) {
+            .column-layout {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn">Previous</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span>/<span id="totalSlides">10</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Next</button>
+        </div>
+        
+        <div class="slide active" id="slide1">
+            <div class="centered-content">
+                <h1>Liver Meridian (LIV)</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li><strong>Origin:</strong> The Liver meridian originates at the lateral aspect of the big toe</li>
+                    <li><strong>Trajectory:</strong> Ascends along the medial aspect of the leg and thigh, enters the inguinal region, passes through the abdomen and hypochondrium</li>
+                    <li><strong>Endpoint:</strong> Ends at the vertex of the ribcage</li>
+                    <li><strong>Function:</strong> Regulates the smooth flow of Qi, stores Blood, and maintains tendons and ligaments</li>
+                    <li><strong>Element:</strong> Wood</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <h1>LIV-1 (Da-dun)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Dorsomedial aspect of the thoracic hoof, at the origin of the medial collateral ligament of the distal interphalangeal joint, 0.5 cun proximal to coronary band</li>
+                        <li><strong>Notes:</strong> Jing-well point (Wood)</li>
+                        <li><strong>Indications:</strong> Laminitis, side-bones, hernia</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-1 location near the coronary band</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <h1>LIV-2 (Xing-jian)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> On the dorsomedial side of the pelvic limb, distal to the metatarsophalangeal joint, dorsal to the junction of the medial extensor branch of the suspensory ligament and the common digital extensor tendon</li>
+                        <li><strong>Notes:</strong> Ying-spring point (Fire)</li>
+                        <li><strong>Indications:</strong> Liver Yang rising, eye problems, ring-bone, side-bone, laminitis, abnormal cycling</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-2 location distal to the metatarsophalangeal joint</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h1>LIV-3 (Tai-chong)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Distal and dorsal to the base of the 2nd metatarsal bone, in the depression between the 2nd and 3rd metatarsal bones</li>
+                        <li><strong>Notes:</strong> Shu-stream point (Earth), Yuan primary point</li>
+                        <li><strong>Indications:</strong> Liver Yang rising, eye problems, tendonitis, hypertension, mastitis, abnormal cycling</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-3 location between the 2nd and 3rd metatarsal bones</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h1>LIV-4 (Zhong-feng)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Dorsal aspect of the hock, on the saphenous vein, proximal to the cunean tendon</li>
+                        <li><strong>Notes:</strong> Jing-river point (Metal)</li>
+                        <li><strong>Indications:</strong> Anhidrosis, hock pain, swelling and pain of hindlimb</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-4 location on the dorsal aspect of the hock</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide6">
+            <h1>LIV-5 (Li-gou)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression 5 cun proximal to the medial malleolus (or 2 cun proximal to SP-6), on the cranial border of the tibia</li>
+                        <li><strong>Notes:</strong> Luo-connecting point for GB</li>
+                        <li><strong>Indications:</strong> Urinary dribbling, urinary incontinence, paralysis of hindlimb</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-5 location proximal to the medial malleolus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide7">
+            <h1>LIV-6 (Zhong-du)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression 7 cun proximal to the medial malleolus, on the cranial border of the tibia (or 2 cun proximal to LIV-5)</li>
+                        <li><strong>Notes:</strong> Xi-cleft point</li>
+                        <li><strong>Indications:</strong> Hernia, uterine problems, colic</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-6 location on the cranial border of the tibia</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide8">
+            <h1>LIV-8 (Qu-quan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression 2 cun cranial to KID-10 on the ventral border of the gracilis m.</li>
+                        <li><strong>Notes:</strong> He-sea point (Water)</li>
+                        <li><strong>Indications:</strong> Male infertility, genital itching, urinary incontinence, abnormal cycling, pain in stifle</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-8 location on the ventral border of the gracilis muscle</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide9">
+            <h1>LIV-13 (Zhang-men)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> At the distal end of the 18th rib</li>
+                        <li><strong>Notes:</strong> Influential point for Zang organs, Alarm point for SP</li>
+                        <li><strong>Indications:</strong> Abdominal fullness, colic, diarrhea, abdominal mass, muscle pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-13 location at the distal end of the 18th rib</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide10">
+            <h1>LIV-14 (Qi-men)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the 13th intercostal space at the level of the elbow</li>
+                        <li><strong>Notes:</strong> Alarm point for Liver</li>
+                        <li><strong>Indications:</strong> Hepatic disorders, mastitis, pleuritis, chest pain, muscle pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing LIV-14 location in the 13th intercostal space</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideSpan = document.getElementById('currentSlide');
+            const totalSlidesSpan = document.getElementById('totalSlides');
+            
+            let currentSlide = 0;
+            totalSlidesSpan.textContent = slides.length;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                currentSlideSpan.textContent = index + 1;
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

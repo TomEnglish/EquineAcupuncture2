@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallbladder Meridian Acupuncture Points</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .slide {
+            display: none;
+            padding: 2rem;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b0000;
+        }
+        
+        h2 {
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(145deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px dashed #ccc;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #888;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            transform: scale(1.02);
+        }
+        
+        .point-info {
+            margin-left: 20px;
+        }
+        
+        .point-info ul {
+            padding-left: 20px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: linear-gradient(145deg, #9a0000, #8b0000);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        table, th, td {
+            border: none;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #8b0000;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .column-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        ul {
+            line-height: 1.6;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        ul li strong {
+            color: #8b0000;
+        }
+        
+        .slide-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #8b0000;
+        }
+        
+        @media (max-width: 768px) {
+            .column-layout {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn">Previous</button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span>/<span id="totalSlides">17</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Next</button>
+        </div>
+        
+        <div class="slide active" id="slide1">
+            <div class="centered-content">
+                <h1>Gallbladder Meridian (GB)</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li><strong>Origin:</strong> The Gallbladder meridian begins at the outer canthus of the eye</li>
+                    <li><strong>Trajectory:</strong> Traverses the lateral aspect of the head and neck, passes through the shoulder region, descends along the lateral aspect of the trunk and hindlimb</li>
+                    <li><strong>Endpoint:</strong> Terminates at the fourth toe</li>
+                    <li><strong>Function:</strong> Aids in decision-making, regulates tendons and joints, and supports bile production</li>
+                    <li><strong>Element:</strong> Wood</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <h1>GB-1 (Tai-yang)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 1 cun caudoventral to the lateral canthus of the eye, over the transverse facial vein</li>
+                        <li><strong>Indications:</strong> Eye problems, anhidrosis, colds</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-1 location caudoventral to the lateral canthus of the eye</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <h1>GB-3 (Shang-guan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In the depression at the caudodorsal aspect of the TMJ, dorsal to the zygomatic arch of the temporal bone (The depression is easily seen when the horse opens its mouth)</li>
+                        <li><strong>Indications:</strong> Facial paralysis, syncope, Wind pattern, Shen disturbances</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-3 location at the caudodorsal aspect of the TMJ</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h1>GB-20 (Feng-chi)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Just cranial to the atlas, two cun lateral to the dorsal midline</li>
+                        <li><strong>Indications:</strong> External Wind, Internal Wind, cervical stiffness, nose-bleeding, nasal discharge/congestion, epilepsy</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-20 location cranial to the atlas</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h1>GB-21 (Bo-zhong)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression at the midpoint of the cranial edge of the scapula, caudal to the subclavius m.</li>
+                        <li><strong>Indications:</strong> Shoulder pain, forelimbs paralysis, mastitis, difficult labor</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-21 location at the midpoint of the cranial edge of the scapula</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide6">
+            <h1>GB-24 (Ri-yue)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 14th intercostal space at the level of the elbow, caudal to LIV-14</li>
+                        <li><strong>Notes:</strong> Alarm point for GB</li>
+                        <li><strong>Indications:</strong> Hepatic diseases, Liver Qi Stagnation</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-24 location at the 14th intercostal space</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide7">
+            <h1>GB-25 (Jing-men)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression halfway between the caudal border of the costochondral junction of the 18th rib and lumbar muscles</li>
+                        <li><strong>Notes:</strong> Alarm point for Kidney</li>
+                        <li><strong>Indications:</strong> Infertility, ovary disorders, lumbar pain, colic, impaction, Kidney Deficiency</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-25 location between the costochondral junction and lumbar muscles</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide8">
+            <h1>GB-27 (Wu-shu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 0.5 cun craniodorsal to the craniodorsal aspect of the tuber coxa</li>
+                        <li><strong>Notes:</strong> Diagnostic point for hock pain</li>
+                        <li><strong>Indications:</strong> Back pain, poor performance, hock pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-27 location craniodorsal to the tuber coxa</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide9">
+            <h1>GB-29 (Ju-liao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression midway between tuber coxa and greater trochanter of the femur</li>
+                        <li><strong>Indications:</strong> Poor performance, gluteal muscle soreness, hindlimb pain, coxofemoral joint arthritis, hindlimb paralysis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-29 location between tuber coxa and greater trochanter</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide10">
+            <h1>GB-30 (Huan-tiao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> In a depression, on the caudoventral margin of the greater trochanter</li>
+                        <li><strong>Indications:</strong> Same as GB-29: Poor performance, gluteal muscle soreness, hindlimb pain, coxofemoral joint arthritis, hindlimb paralysis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-30 location on the caudoventral margin of the greater trochanter</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide11">
+            <h1>GB-34 (Yang-ling-quan)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Craniodistal to the head of fibula, in the interosseous space between the tibia and fibula, between the long and lateral digital extensor mm.</li>
+                        <li><strong>Notes:</strong> He-sea point (Earth), Influential point for tendon and ligaments</li>
+                        <li><strong>Indications:</strong> Weakness of tendon/ligament, rear weakness</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-34 location craniodistal to the head of fibula</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide12">
+            <h1>GB-35 (Yang-jiao)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 1 cun caudal to GB-36</li>
+                        <li><strong>Notes:</strong> Xi-cleft point for Yang-Wei</li>
+                        <li><strong>Indications:</strong> Acute fullness of the chest</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-35 location caudal to GB-36</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide13">
+            <h1>GB-36 (Wai-qiu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 2 cun proximal to GB-37 (or 7 cun proximal to the lateral malleolus), between the lateral digital extensor m. and the deep digital flexor m.</li>
+                        <li><strong>Notes:</strong> Xi-cleft point for GB</li>
+                        <li><strong>Indications:</strong> Liver Yang rising (anger, irritability, hypertension)</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-36 location between the lateral digital extensor and deep digital flexor muscles</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide14">
+            <h1>GB-39 (Xuan-zhong)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> 3 cun proximal to the tip of the lateral malleolus, on the caudal aspect of the tibia, between the lateral digital extensor m. and the deep digital flexor m.</li>
+                        <li><strong>Notes:</strong> Influential point for marrow</li>
+                        <li><strong>Indications:</strong> Cervical stiffness, hindlimb paresis or paralysis, anus problems, chest pain, sore throat</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-39 location proximal to the lateral malleolus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide15">
+            <h1>GB-40 (Qiu-xu)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Cranial to BL-62. At the distal border of the lateral malleolus of the tibia</li>
+                        <li><strong>Notes:</strong> Yuan primary point</li>
+                        <li><strong>Indications:</strong> Pain in hock, chest pain</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-40 location at the distal border of the lateral malleolus</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide16">
+            <h1>GB-41 (Zu-lin-qi)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Distal and dorsal to the base of the 4th metatarsal bone, in the depression between the 4th and 3rd metatarsal bones</li>
+                        <li><strong>Notes:</strong> Shu-stream point (Wood), Confluent point with Dai Channel</li>
+                        <li><strong>Indications:</strong> Pain in metatarsal region, flexor tendonitis, urinary incontinence, abnormal cycling, eye problems, mastitis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-41 location between the 4th and 3rd metatarsal bones</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide17">
+            <h1>GB-44 (Zu-qiao-yin)</h1>
+            <div class="column-layout">
+                <div class="column">
+                    <ul>
+                        <li><strong>Location:</strong> Dorsolateral aspect of the pelvic limb, 0.5 cun proximal to the coronary band</li>
+                        <li><strong>Notes:</strong> Jing-well point (Metal)</li>
+                        <li><strong>Indications:</strong> Laminitis, hock pain, hip problems, coxa problem, abnormal cycling, laminitis</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="image-placeholder">Anatomical diagram showing GB-44 location proximal to the coronary band</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideSpan = document.getElementById('currentSlide');
+            const totalSlidesSpan = document.getElementById('totalSlides');
+            
+            let currentSlide = 0;
+            totalSlidesSpan.textContent = slides.length;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                currentSlideSpan.textContent = index + 1;
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
